@@ -27,3 +27,9 @@ input[type="range"] {
 input[disabled] {
     background-color: #e9e9e9;
 }
+
+
+#tipEmoji {
+    font-size: 24px;
+    margin-left: 10px;
+}
