@@ -1,5 +1,5 @@
 body {
-    font-family: 'Roboto', sans-serif; 
+    font-family: 'Roboto', sans-serif;
     padding: 20px;
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
 }
@@ -9,23 +9,24 @@ body {
     max-width: 600px;
     margin: 40px auto;
     border: 1px solid #ccc;
-    padding: 30px;
-    border-radius: 15px; 
-    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1); 
+    padding: 20px 15px; 
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
 }
 
 label, input {
+    box-sizing: border-box; 
     width: 100%;
-    padding: 15px;
-    margin: 15px 0;
+    padding: 10px 12px; 
+    margin: 10px 0; 
     font-size: 16px;
     border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
 }
 
 #tipEmoji {
     font-size: 28px;
-    margin-left: 15px;
+    margin-left: 10px; 
     vertical-align: middle;
 }
