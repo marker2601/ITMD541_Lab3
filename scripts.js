@@ -14,11 +14,12 @@ document.querySelector('form').addEventListener('input', function() {
     let totalBillWithTip = (billTotal + parseFloat(tipAmount)).toFixed(2);
     document.getElementById('totalBillWithTip').value = totalBillWithTip;
 
+    // Set emoji based on tip percentage
     if (tip <= 10) {
-        document.getElementById('tipEmoji').innerText = '😞'; // sad
+        document.getElementById('tipEmoji').innerHTML = '&#128542;'; // sad
     } else if (tip > 10 && tip <= 20) {
-        document.getElementById('tipEmoji').innerText = '😐'; // neutral
+        document.getElementById('tipEmoji').innerHTML = '&#128528;'; // neutral
     } else {
-        document.getElementById('tipEmoji').innerText = '😄'; // smiling
+        document.getElementById('tipEmoji').innerHTML = '&#128578;'; // smiling
     }
 });
