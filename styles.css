@@ -1,59 +1,77 @@
 body {
     font-family: 'Roboto', sans-serif;
     padding: 20px;
-    background: url('background.jpg') center/cover no-repeat; 
+    background: url('background.jpg') center/cover no-repeat;
     background-attachment: fixed;
 }
 
 .container {
-    width: 90%;
+    width: 100%;
     max-width: 600px;
     margin: 40px auto;
     border: 1px solid #c4c4c4;
-    padding: 20px 15px; 
+    padding: 20px 15px;
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(120deg, #4e5358, #2a2d30); 
-    position: relative; 
+    background: linear-gradient(120deg, #4e5358, #2a2d30);
+    position: relative;
 }
 
 label, input {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     width: 100%;
-    padding: 10px 12px; 
-    margin: 10px 0; 
-    font-size: 16px;
+    padding: 10px 12px;
+    margin: 10px 0;
+    font-size: 1rem; 
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.2); 
+    background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #ccc; 
+    color: #ccc;
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    background: #6a6f74; 
+    background: #6a6f74;
 }
 
 input[type="range"]::-moz-range-thumb {
-    background: #6a6f74; 
+    background: #6a6f74;
 }
 
 #tipEmoji {
-    font-size: 28px;
-    margin-left: 10px; 
+    font-size: 1.75rem; 
+    margin-left: 10px;
     vertical-align: middle;
 }
-
 
 .watermark {
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 24px; 
+    font-size: 1.5rem;
     font-weight: bold;
-    opacity: 0.6; 
+    opacity: 0.6;
     white-space: nowrap;
-    color: #ffffff; 
+    color: #ffffff;
 }
 
+@media only screen and (max-width: 768px) {
+    .container {
+        max-width: 90%;
+    }
+
+    label, input {
+        font-size: 0.9rem;
+    }
+
+    .watermark {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    .container {
+        padding: 10px; 
+    }
+}
