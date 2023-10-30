@@ -97,7 +97,10 @@ document.querySelector("input[type='reset']").addEventListener("click", function
     roundUp.checked = false;
 });
 
-billTotal.addEventListener("input", calculateTip);
+billTotal.addEventListener('input', function(event) {
+    this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
+});
+
 people.addEventListener("input", calculateTip);
 serviceQuality.addEventListener("change", calculateTip);
 tipSlider.addEventListener("input", updateTipValue);
