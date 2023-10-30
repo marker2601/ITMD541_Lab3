@@ -71,7 +71,7 @@ function setTipEmoji(tipPercentage) {
 
 function updateTipValue() {
     let tipVal = tipSlider.value;
-    tipInput.value = tipVal;
+    tipInput.value = tipVal+"%";
     calculateTip();
 }
 
