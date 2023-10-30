@@ -56,6 +56,11 @@ function updateSliderValue() {
 }
 
 function printDetails() {
+    if (!billTotal.value || parseFloat(billTotal.value) === 0) {
+        alert("Please enter the bill total amount.");
+        return;  
+    }
+    
     let details = "Bill Total: $" + billTotal.value + "\n";
     details += "Number of People: " + people.value + "\n";
     details += "Service Quality: " + serviceQuality.options[serviceQuality.selectedIndex].text + "\n";
@@ -65,6 +70,7 @@ function printDetails() {
     
     alert(details);
 }
+
 
 document.querySelector("input[type='reset']").addEventListener("click", function() {
     billTotal.value = "";
