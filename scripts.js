@@ -26,10 +26,12 @@ document.querySelector('form').addEventListener('input', function() {
 });
 
 function printDetails() {
-    let oldContent = document.body.innerHTML;
     let printContent = document.querySelector('.container').outerHTML;
-
-    document.body.innerHTML = printContent;
-    window.print();
-    document.body.innerHTML = oldContent;
+    let newWindow = window.open('', '_blank');
+    newWindow.document.write('<html><head><title>Print</title></head><body>');
+    newWindow.document.write(printContent);
+    newWindow.document.write('</body></html>');
+    newWindow.document.close();
+    newWindow.print();
 }
+
