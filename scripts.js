@@ -3,7 +3,6 @@ let people = document.getElementById("people");
 let serviceQuality = document.getElementById("serviceQuality");
 let tipSlider = document.getElementById("tip");
 let tipInput = document.getElementById("tipInput");
-let tipPercentage = document.getElementById("tipPercentage");
 let tipAmount = document.getElementById("tipAmount");
 let totalBillWithTip = document.getElementById("totalBillWithTip");
 let roundUp = document.getElementById("roundUp");
@@ -24,17 +23,17 @@ function calculateTip() {
 
     tipAmount.value = totalTipAmount.toFixed(2);
     totalBillWithTip.value = totalBillValue.toFixed(2);
-    setTipEmoji(parseInt(tipInput.value));
+    setTipEmoji(tipPercent);
 }
 
 function setTipEmoji(tipPercentage) {
     const tipEmoji = document.getElementById("tipEmoji");
 
-    if (tipPercentage < 10) {
+    if (tipPercentage < 0.10) {
         tipEmoji.innerHTML = "🙁";
-    } else if (tipPercentage >= 10 && tipPercentage < 15) {
+    } else if (tipPercentage < 0.15) {
         tipEmoji.innerHTML = "😐";
-    } else if (tipPercentage >= 15 && tipPercentage < 20) {
+    } else if (tipPercentage < 0.20) {
         tipEmoji.innerHTML = "😊";
     } else {
         tipEmoji.innerHTML = "🤩";
@@ -78,7 +77,6 @@ document.querySelector("input[type='reset']").addEventListener("click", function
     roundUp.checked = false;
 });
 
-// Event Listeners to update the tip calculation automatically
 billTotal.addEventListener("input", calculateTip);
 people.addEventListener("input", calculateTip);
 serviceQuality.addEventListener("change", calculateTip);
