@@ -14,10 +14,10 @@
         <form>
             <label for="billTotal">Bill Total:</label>
             <input type="text" id="billTotal" oninput="calculateTip()">
-            
+
             <label for="people">Split Between:</label>
             <input type="number" id="people" value="1" min="1" oninput="calculateTip()">
-            
+
             <label for="serviceQuality">Service Quality:</label>
             <select id="serviceQuality" onchange="adjustTipBasedOnService()">
                 <option value="1">Poor</option>
