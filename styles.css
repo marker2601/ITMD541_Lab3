@@ -13,7 +13,7 @@ body {
     padding: 20px 15px; 
     border-radius: 15px;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
-    background: linear-gradient(120deg, #3a3f44, #1c2025);
+    background: linear-gradient(120deg, #4e5358, #2a2d30); 
     position: relative; 
 }
 
@@ -25,17 +25,17 @@ label, input {
     font-size: 16px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    background: rgba(255, 255, 255, 0.1);  
-    border: 1px solid rgba(255, 255, 255, 0.3); 
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
     color: #ccc; 
 }
 
 input[type="range"]::-webkit-slider-thumb {
-    background: #5a5f64;
+    background: #6a6f74; 
 }
 
 input[type="range"]::-moz-range-thumb {
-    background: #5a5f64; 
+    background: #6a6f74; 
 }
 
 #tipEmoji {
@@ -44,16 +44,16 @@ input[type="range"]::-moz-range-thumb {
     vertical-align: middle;
 }
 
-/* Watermark styles */
+
 .watermark {
     position: absolute;
     top: 5%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 20px;
+    font-size: 24px; 
     font-weight: bold;
-    opacity: 0.5; 
+    opacity: 0.6; 
     white-space: nowrap;
-    color: #ccc; 
+    color: #ffffff; 
 }
 
