@@ -13,32 +13,40 @@
         <h1>Tip Calculator</h1>
         <form>
             <label for="billTotal">Bill Total:</label>
-            <input type="text" id="billTotal">
-            <br>
+            <input type="text" id="billTotal" oninput="calculateTip()">
             
+            <label for="people">Split Between:</label>
+            <input type="number" id="people" value="1" min="1" oninput="calculateTip()">
+            
+            <label for="serviceQuality">Service Quality:</label>
+            <select id="serviceQuality" onchange="adjustTipBasedOnService()">
+                <option value="1">Poor</option>
+                <option value="1.05">Fair</option>
+                <option value="1.1">Good</option>
+                <option value="1.15">Excellent</option>
+            </select>
+
             <label for="tip">Tip: <span id="tipEmoji"></span></label>
-            <input type="range" id="tip" min="0" max="100">
-            
-            <br>
-            
+            <input type="range" id="tip" min="0" max="100" oninput="updateTipValue()">
+            <input type="number" id="tipInput" style="width: 60px;" value="15" oninput="updateSliderValue()">
+
             <label for="tipPercentage">Tip Percentage:</label>
             <input type="text" id="tipPercentage" disabled>
-            <br>
-            
+
             <label for="tipAmount">Tip Amount:</label>
             <input type="text" id="tipAmount" disabled>
-            <br>
-            
+
             <label for="totalBillWithTip">Total Bill with Tip:</label>
             <input type="text" id="totalBillWithTip" disabled>
+
+            <input type="checkbox" id="roundUp" onchange="calculateTip()"> Round up
         </form>
-        <button onclick="printDetails()" style="display: block; margin: 20px auto; padding: 10px 20px; background-color: #fda085; border: none; border-radius: 5px; color: white; cursor: pointer;">Print</button>
+        <button onclick="printDetails()" style="margin: 20px auto; padding: 10px 20px; background-color: #fda085; border: none; border-radius: 5px; color: white; cursor: pointer;">Print</button>
     </div>
 
     <script src="scripts.js"></script>
     <footer style="position: fixed; bottom: 10px; right: 10px; font-size: 10px;">
         Photo by <a href="https://unsplash.com/@ninjason?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Jason Leung</a> on <a href="https://unsplash.com/photos/photo-of-pub-set-in-room-during-daytime-poI7DelFiVA?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash" target="_blank">Unsplash</a>
     </footer>
-    
 </body>
 </html>
