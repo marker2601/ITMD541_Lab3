@@ -27,11 +27,13 @@ document.querySelector('form').addEventListener('input', function() {
 
 function printDetails() {
     let printContent = document.querySelector('.container').outerHTML;
-    let newWindow = window.open('', '_blank');
-    newWindow.document.write('<html><head><title>Print</title></head><body>');
-    newWindow.document.write(printContent);
-    newWindow.document.write('</body></html>');
-    newWindow.document.close();
-    newWindow.print();
+    let printWindow = window.open('', '_blank');
+    
+    printWindow.document.write('<html><head><title>Print</title></head><body>');
+    printWindow.document.write(printContent);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
 }
+
 
