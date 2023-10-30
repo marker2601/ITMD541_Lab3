@@ -3,7 +3,7 @@ function isNumberKey(evt) {
     if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
         return false;
     }
-    // Ensure only one decimal point
+
     const inputVal = evt.target.value;
     if (charCode == 46 && inputVal.indexOf('.') !== -1) {
         return false;
@@ -12,7 +12,16 @@ function isNumberKey(evt) {
 }
 
 let billTotal = document.getElementById("billTotal");
-billTotal.addEventListener('keypress', isNumberKey);
+
+billTotal.addEventListener('keypress', function(event) {
+    if (!isNumberKey(event)) {
+        event.preventDefault();
+    }
+
+    validateBillInput();
+});
+
+
 
 let people = document.getElementById("people");
 let serviceQuality = document.getElementById("serviceQuality");
@@ -118,9 +127,8 @@ document.querySelector("input[type='reset']").addEventListener("click", function
     roundUp.checked = false;
 });
 
-billTotal.addEventListener('input', function(event) {
-    this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');
-});
+billTotal.addEventListener('keyup', validateBillInput);
+
 
 people.addEventListener("input", calculateTip);
 serviceQuality.addEventListener("change", calculateTip);
