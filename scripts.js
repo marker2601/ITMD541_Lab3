@@ -17,6 +17,7 @@ function calculateTip() {
     let tipValue = bill * tipPercent * serviceFactor;
     let totalTipAmount = tipValue / numberOfPeople;
     
+    
     let totalBillValue = bill + tipValue;
     
     if (roundUp.checked) {
@@ -25,7 +26,23 @@ function calculateTip() {
 
     tipAmount.value = totalTipAmount.toFixed(2);
     totalBillWithTip.value = totalBillValue.toFixed(2);
+    setTipEmoji(parseInt(tipInput.value));
 }
+
+function setTipEmoji(tipPercentage) {
+    const tipEmoji = document.getElementById("tipEmoji");
+
+    if (tipPercentage < 10) {
+        tipEmoji.innerHTML = "🙁";
+    } else if (tipPercentage >= 10 && tipPercentage < 15) {
+        tipEmoji.innerHTML = "😐";
+    } else if (tipPercentage >= 15 && tipPercentage < 20) {
+        tipEmoji.innerHTML = "😊";
+    } else {
+        tipEmoji.innerHTML = "🤩";
+    }
+}
+
 
 function adjustTipBasedOnService() {
     let baseTip = parseFloat(tipSlider.value) / 100;
@@ -40,6 +57,7 @@ function updateTipValue() {
     let tipVal = tipSlider.value;
     tipInput.value = tipVal;
     calculateTip();
+    setTipEmoji(parseInt(tipInput.value));
 }
 
 function updateSliderValue() {
@@ -49,6 +67,7 @@ function updateSliderValue() {
     
     tipSlider.value = inputVal;
     calculateTip();
+    setTipEmoji(parseInt(tipInput.value));
 }
 
 function printDetails() {
