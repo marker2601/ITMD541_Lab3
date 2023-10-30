@@ -16,10 +16,13 @@ let billTotal = document.getElementById("billTotal");
 billTotal.addEventListener('keypress', function(event) {
     if (!isNumberKey(event)) {
         event.preventDefault();
+        const errorSpan = document.getElementById("errorBill");
+        errorSpan.style.display = "block";
+    } else {
+        validateBillInput();
     }
-
-    validateBillInput();
 });
+
 
 
 
@@ -109,12 +112,14 @@ function validateBillInput() {
     const billInput = document.getElementById("billTotal");
     const errorSpan = document.getElementById("errorBill");
     
-    if (billInput.validity.valid) {
+
+    if (!isNaN(billInput.value) && billInput.value.trim() !== '' && billInput.validity.valid) {
         errorSpan.style.display = "none";
     } else {
         errorSpan.style.display = "block";
     }
 }
+
 
 
 
@@ -129,7 +134,8 @@ document.querySelector("input[type='reset']").addEventListener("click", function
     roundUp.checked = false;
 });
 
-billTotal.addEventListener('keyup', validateBillInput);
+billTotal.addEventListener('input', validateBillInput);
+
 
 
 people.addEventListener("input", calculateTip);
