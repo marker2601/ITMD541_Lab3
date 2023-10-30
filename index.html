@@ -12,38 +12,54 @@
     <div class="container">
         <h1>Tip Calculator</h1>
         <form>
-            <label for="billTotal">Bill Total:</label>
-            <input type="text" id="billTotal" oninput="calculateTip()">
+            <div class="input-group">
+                <label for="billTotal">Bill Total:</label>
+                <input type="text" id="billTotal" oninput="calculateTip()">
+                <span class="result" id="billTotalDisplay"></span>
+            </div>
 
-            <label for="people">Split Between:</label>
-            <input type="number" id="people" value="1" min="1" oninput="calculateTip()">
+            <div class="input-group">
+                <label for="people">Split Between:</label>
+                <input type="number" id="people" value="1" min="1" oninput="calculateTip()">
+            </div>
 
-            <label for="serviceQuality">Service Quality:</label>
-            <select id="serviceQuality" onchange="adjustTipBasedOnService()">
-                <option value="1">Poor</option>
-                <option value="1.05">Fair</option>
-                <option value="1.1">Good</option>
-                <option value="1.15">Excellent</option>
-            </select>
+            <div class="input-group">
+                <label for="serviceQuality">Service Quality:</label>
+                <select id="serviceQuality" onchange="adjustTipBasedOnService()">
+                    <option value="1">Poor</option>
+                    <option value="1.05">Fair</option>
+                    <option value="1.1">Good</option>
+                    <option value="1.15">Excellent</option>
+                </select>
+            </div>
 
-            <label for="tip">Tip: <span id="tipEmoji"></span></label>
-            <input type="range" id="tip" min="0" max="100" oninput="updateTipValue()">
-            <input type="number" id="tipInput" style="width: 60px;" value="15" oninput="updateSliderValue()">
+            <div class="input-group">
+                <label for="tip">Tip: <span id="tipEmoji"></span></label>
+                <input type="range" id="tip" min="0" max="100" oninput="updateTipValue()">
+                <input type="number" id="tipInput" style="width: 60px;" value="15" oninput="updateSliderValue()">
+            </div>
 
-            <label for="tipPercentage">Tip Percentage:</label>
-            <input type="text" id="tipPercentage" disabled>
+            <div class="input-group">
+                <label>Tip Percentage:</label>
+                <span id="tipPercentage"></span>
+            </div>
 
-            <label for="tipAmount">Tip Amount:</label>
-            <input type="text" id="tipAmount" disabled>
+            <div class="input-group">
+                <label for="tipAmount">Tip Amount:</label>
+                <input type="text" id="tipAmount" disabled>
+            </div>
 
-            <label for="totalBillWithTip">Total Bill with Tip:</label>
-            <input type="text" id="totalBillWithTip" disabled>
+            <div class="input-group">
+                <label for="totalBillWithTip">Total Bill with Tip:</label>
+                <input type="text" id="totalBillWithTip" disabled>
+            </div>
 
             <input type="checkbox" id="roundUp" onchange="calculateTip()"> Round up
+
+            <input type="submit" value="Calculate" onclick="calculateTip()">
+            <input type="reset" value="Reset">
+            <input type="button" value="Print Details" onclick="printDetails()">
         </form>
-        <input type="submit" value="Calculate" onclick="calculateTip()">
-        <input type="reset" value="Reset">
-        <input type="button" value="Print Details" onclick="printDetails()">
     </div>
 
     <script src="scripts.js"></script>
