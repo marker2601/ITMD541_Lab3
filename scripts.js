@@ -31,7 +31,7 @@ document.getElementById("totalTip").style.display = "none";
     document.getElementById('totalBillWithTip').value = totalBillWithTip / people;
 
     updateEmoji(tip);
-}
+
 
 function updateTipValue() {
     let tipValue = document.getElementById('tip').value;
