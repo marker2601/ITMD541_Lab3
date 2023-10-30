@@ -9,15 +9,13 @@ let totalBillWithTip = document.getElementById("totalBillWithTip");
 let roundUp = document.getElementById("roundUp");
 
 function calculateTip() {
-    let bill = parseFloat(billTotal.value);
+    let bill = parseFloat(billTotal.value) || 0;
     let numberOfPeople = parseInt(people.value);
     let tipPercent = parseInt(tipInput.value) / 100;
     let serviceFactor = parseFloat(serviceQuality.value);
     
     let tipValue = bill * tipPercent * serviceFactor;
     let totalTipAmount = tipValue / numberOfPeople;
-    
-    
     let totalBillValue = bill + tipValue;
     
     if (roundUp.checked) {
@@ -43,21 +41,10 @@ function setTipEmoji(tipPercentage) {
     }
 }
 
-
-function adjustTipBasedOnService() {
-    let baseTip = parseFloat(tipSlider.value) / 100;
-    let serviceFactor = parseFloat(serviceQuality.value);
-    let adjustedTip = baseTip * serviceFactor;
-    
-    tipInput.value = (adjustedTip * 100).toFixed(0);
-    calculateTip();
-}
-
 function updateTipValue() {
     let tipVal = tipSlider.value;
     tipInput.value = tipVal;
     calculateTip();
-    setTipEmoji(parseInt(tipInput.value));
 }
 
 function updateSliderValue() {
@@ -67,7 +54,6 @@ function updateSliderValue() {
     
     tipSlider.value = inputVal;
     calculateTip();
-    setTipEmoji(parseInt(tipInput.value));
 }
 
 function printDetails() {
@@ -91,3 +77,11 @@ document.querySelector("input[type='reset']").addEventListener("click", function
     totalBillWithTip.value = "";
     roundUp.checked = false;
 });
+
+// Event Listeners to update the tip calculation automatically
+billTotal.addEventListener("input", calculateTip);
+people.addEventListener("input", calculateTip);
+serviceQuality.addEventListener("change", calculateTip);
+tipSlider.addEventListener("input", updateTipValue);
+tipInput.addEventListener("input", updateSliderValue);
+roundUp.addEventListener("change", calculateTip);
