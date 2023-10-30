@@ -16,7 +16,8 @@
                 <label for="billTotal" class="input-label">Bill Total:</label>
                 <div class="tip-section">
                     <span class="dollar-sign">$</span>
-                    <input type="text" id="billTotal" oninput="calculateTip()" class="input-value">
+                    <input type="text" id="billTotal" oninput="calculateTip()" class="input-value" pattern="^\d*(\.\d{0,2})?$" title="Please enter a valid amount">
+
                 </div>
             </div>
 
