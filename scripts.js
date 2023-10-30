@@ -1,22 +1,30 @@
 document.querySelector('form').addEventListener('input', calculateTip);
 
 function calculateTip() {
-    let billTotal = parseFloat(document.getElementById('billTotal').value);
-    let tip = parseInt(document.getElementById('tip').value);
-    let people = parseInt(document.getElementById('people').value);
+    var billAmt = document.getElementById("billamt").value;
+    var tipAmt = document.getElementById("tipamt").value;
+    var numOfPeople = document.getElementById("peopleamt").value;
 
-    if(isNaN(billTotal) || billTotal <= 0) {
-        alert("Please enter a valid positive number for Bill Total!");
+    if (billAmt === "" || numOfPeople == 0) {
+        alert("Please enter values");
         return;
     }
+    
 
-    let tipAmount = (billTotal * tip / 100).toFixed(2);
-    let totalBillWithTip = (billTotal + parseFloat(tipAmount)).toFixed(2);
+    var tipPercent = (tipAmt / billAmt) * 100;
+    document.getElementById("serviceQual").value = tipPercent;
 
-    if(document.getElementById('roundUp').checked) {
-        totalBillWithTip = Math.ceil(totalBillWithTip);
-        tipAmount = (totalBillWithTip - billTotal).toFixed(2);
-    }
+    var total = (billAmt * tipPercent) / 100 / numOfPeople;
+    total = Math.round(total * 100) / 100;
+    total = total.toFixed(2);
+
+    document.getElementById("totalTip").style.display = "block";
+    document.getElementById("tip").innerHTML = total;
+}
+
+
+document.getElementById("totalTip").style.display = "none";
+
 
     document.getElementById('tipPercentage').value = tip + "%";
     document.getElementById('tipAmount').value = tipAmount;
@@ -40,7 +48,7 @@ function updateSliderValue() {
 function adjustTipBasedOnService() {
     let serviceMultiplier = parseFloat(document.getElementById('serviceQuality').value);
     let newTip = parseInt(document.getElementById('tip').value) * serviceMultiplier;
-    newTip = Math.min(newTip, 100);  // Ensure tip doesn't exceed 100%
+    newTip = Math.min(newTip, 100);  
     document.getElementById('tip').value = newTip;
     document.getElementById('tipInput').value = newTip;
     calculateTip();
