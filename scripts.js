@@ -14,7 +14,7 @@ document.querySelector('form').addEventListener('input', function() {
     let totalBillWithTip = (billTotal + parseFloat(tipAmount)).toFixed(2);
     document.getElementById('totalBillWithTip').value = totalBillWithTip;
 
-    // Set emoji based on tip percentage
+
     if (tip <= 10) {
         document.getElementById('tipEmoji').innerHTML = '&#128542;'; // sad
     } else if (tip > 10 && tip <= 20) {
