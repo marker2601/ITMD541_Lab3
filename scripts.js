@@ -34,7 +34,8 @@ let roundUp = document.getElementById("roundUp");
 function calculateTip() {
     let bill = parseFloat(billTotal.value) || 0;
     let numberOfPeople = parseInt(people.value);
-    let tipPercent = parseInt(tipInput.value) / 100;
+    
+    let tipPercent = parseInt(tipInput.value.replace('%', '')) / 100; 
     let serviceFactor = parseFloat(serviceQuality.value);
     
     let tipValue = bill * tipPercent * serviceFactor;
@@ -49,6 +50,7 @@ function calculateTip() {
     totalBillWithTip.value = totalBillValue.toFixed(2);
     setTipEmoji(tipPercent);
 }
+
 
 function setTipEmoji(tipPercentage) {
     const tipEmoji = document.getElementById("tipEmoji");
