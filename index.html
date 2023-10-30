@@ -13,7 +13,10 @@
         <h1>Tip Calculator</h1>
         <form>
             <label for="billTotal" class="input-label">Bill Total:</label>
-            <input type="text" id="billTotal" oninput="calculateTip()" class="input-value">
+            <div class="input-group">
+                <span class="amount-symbol">$</span>
+                <input type="text" id="billTotal" oninput="calculateTip()" class="input-value">
+            </div>
 
             <label for="people" class="input-label">Split Between:</label>
             <input type="number" id="people" value="1" min="1" oninput="calculateTip()" class="input-value">
@@ -31,15 +34,21 @@
                 <div class="tip-section">
                     <input type="range" id="tip" min="0" max="100" oninput="updateTipValue()" class="tip-slider">
                     <input type="number" id="tipInput" style="width: 60px;" value="15" oninput="updateSliderValue()">
-                    <span class="input-value" id="tipPercentage"></span>
+                    <span class="input-value" id="tipPercentage">%</span>
                 </div>
             </div>
 
             <label for="tipAmount" class="input-label">Tip Amount:</label>
-            <input type="text" id="tipAmount" disabled class="input-value">
+            <div class="input-group">
+                <span class="amount-symbol">$</span>
+                <input type="text" id="tipAmount" disabled class="input-value">
+            </div>
 
             <label for="totalBillWithTip" class="input-label">Total Bill with Tip:</label>
-            <input type="text" id="totalBillWithTip" disabled class="input-value">
+            <div class="input-group">
+                <span class="amount-symbol">$</span>
+                <input type="text" id="totalBillWithTip" disabled class="input-value">
+            </div>
 
             <label for="roundUp" class="input-label">Round up:</label>
             <input type="checkbox" id="roundUp" onchange="calculateTip()" class="input-value">

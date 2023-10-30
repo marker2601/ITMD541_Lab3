@@ -32,7 +32,6 @@ label, input, select {
 }
 
 input[type="range"] {
-    /* -webkit-appearance: none; */
     width: 100%;
     height: 15px;
     background: #ddd;
@@ -151,4 +150,5 @@ form {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%; 
 }
