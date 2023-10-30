@@ -76,13 +76,16 @@ function updateTipValue() {
 }
 
 function updateSliderValue() {
-    let inputVal = tipInput.value;
+    let inputVal = parseInt(tipInput.value.replace('%', ''));
+    if (isNaN(inputVal)) return;  
+
     if (inputVal > 100) inputVal = 100;
     if (inputVal < 0) inputVal = 0;
-    
+
     tipSlider.value = inputVal;
     calculateTip();
 }
+
 
 function printDetails() {
     if (!billTotal.value || parseFloat(billTotal.value) === 0) {
