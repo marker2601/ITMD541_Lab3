@@ -35,18 +35,19 @@
                 </div>
             </div>
 
-            <label for="tipAmount" class="input-label">Tip Amount:</label>
             <input type="text" id="tipAmount" disabled class="input-value">
+            <label for="tipAmount" class="input-label">Tip Amount:</label>
 
-            <label for="totalBillWithTip" class="input-label">Total Bill with Tip:</label>
             <input type="text" id="totalBillWithTip" disabled class="input-value">
+            <label for="totalBillWithTip" class="input-label">Total Bill with Tip:</label>
 
             <label class="input-label">Round up:</label>
             <input type="checkbox" id="roundUp" onchange="calculateTip()" class="input-value">
+            
+            <input type="submit" value="Submit" onclick="calculateTip()">
+            <input type="reset" value="Reset">
+            <input type="button" value="Print Details" onclick="printDetails()">
         </form>
-        <input type="submit" value="Submit" onclick="calculateTip()">
-        <input type="reset" value="Reset">
-        <input type="button" value="Print Details" onclick="printDetails()">
     </div>
 
     <script src="scripts.js"></script>
