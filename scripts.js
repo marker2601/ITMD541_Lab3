@@ -22,4 +22,13 @@ document.querySelector('form').addEventListener('input', function() {
     } else {
         document.getElementById('tipEmoji').innerHTML = '&#128578;'; // smiling
     }
+    function printDetails() {
+        let oldContent = document.body.innerHTML;
+        let printContent = document.querySelector('.container').outerHTML;
+    
+        document.body.innerHTML = printContent;
+        window.print();
+        document.body.innerHTML = oldContent;
+    }
+    
 });
