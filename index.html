@@ -12,10 +12,12 @@
     <div class="container">
         <h1>Tip Calculator</h1>
         <form>
-            <label for="billTotal" class="input-label">Bill Total:</label>
             <div class="input-group">
-                <span class="amount-symbol">$</span>
-                <input type="text" id="billTotal" oninput="calculateTip()" class="input-value">
+                <label for="billTotal" class="input-label">Bill Total:</label>
+                <div class="tip-section">
+                    <span class="dollar-sign">$</span>
+                    <input type="text" id="billTotal" oninput="calculateTip()" class="input-value">
+                </div>
             </div>
 
             <label for="people" class="input-label">Split Between:</label>
@@ -34,20 +36,24 @@
                 <div class="tip-section">
                     <input type="range" id="tip" min="0" max="100" oninput="updateTipValue()" class="tip-slider">
                     <input type="number" id="tipInput" style="width: 60px;" value="15" oninput="updateSliderValue()">
-                    <span class="input-value" id="tipPercentage">%</span>
+                    <span class="input-value" id="tipPercentage"></span>
                 </div>
             </div>
 
-            <label for="tipAmount" class="input-label">Tip Amount:</label>
             <div class="input-group">
-                <span class="amount-symbol">$</span>
-                <input type="text" id="tipAmount" disabled class="input-value">
+                <label for="tipAmount" class="input-label">Tip Amount:</label>
+                <div class="tip-section">
+                    <span class="dollar-sign">$</span>
+                    <input type="text" id="tipAmount" disabled class="input-value">
+                </div>
             </div>
 
-            <label for="totalBillWithTip" class="input-label">Total Bill with Tip:</label>
             <div class="input-group">
-                <span class="amount-symbol">$</span>
-                <input type="text" id="totalBillWithTip" disabled class="input-value">
+                <label for="totalBillWithTip" class="input-label">Total Bill with Tip:</label>
+                <div class="tip-section">
+                    <span class="dollar-sign">$</span>
+                    <input type="text" id="totalBillWithTip" disabled class="input-value">
+                </div>
             </div>
 
             <label for="roundUp" class="input-label">Round up:</label>
