@@ -9,7 +9,7 @@ body {
 .container {
     width: 100%;
     max-width: 600px;
-    padding: 15px 10px;
+    padding: 20px 15px;
     margin: 20px auto;
     border: 1px solid #999999; 
     border-radius: 15px;
@@ -18,11 +18,11 @@ body {
     position: relative;
 }
 
-label, input {
+label, input, select {
     box-sizing: border-box;
     width: 100%;
     padding: 10px 12px;
-    margin: 10px 0;
+    margin: 8px 0;
     font-size: 1rem;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); 
@@ -71,12 +71,16 @@ form {
     margin-right: 2%;  
 }
 
+#serviceQuality, #tip {
+    width: calc(100% - 60px); 
+}
+
 @media only screen and (max-width: 768px) {
     .container {
         max-width: 90%;
     }
 
-    label, input {
+    label, input, select {
         font-size: 0.9rem;
     }
 
