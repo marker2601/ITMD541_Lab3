@@ -85,6 +85,27 @@ function printDetails() {
     
     alert(details);
 }
+function updateSliderValueWithPercentage() {
+    let inputVal = parseInt(tipInput.value.replace('%', ''));
+    if (inputVal > 100) inputVal = 100;
+    if (inputVal < 0) inputVal = 0;
+    
+    tipSlider.value = inputVal;
+    tipInput.value = inputVal + "%"; 
+    calculateTip();
+}
+function validateBillInput() {
+    const billInput = document.getElementById("billTotal");
+    const errorSpan = document.getElementById("errorBill");
+    
+    if (billInput.validity.valid) {
+        errorSpan.style.display = "none";
+    } else {
+        errorSpan.style.display = "block";
+    }
+}
+
+
 
 document.querySelector("input[type='reset']").addEventListener("click", function() {
     billTotal.value = "";

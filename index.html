@@ -16,10 +16,10 @@
                 <label for="billTotal" class="input-label">Bill Total:</label>
                 <div class="tip-section">
                     <span class="dollar-sign">$</span>
-                    <input type="number" id="billTotal" placeholder="Enter bill amount" min="0" step="0.01">
-
-
+                    <input type="number" id="billTotal" placeholder="Enter bill amount" min="0" step="0.01" oninput="validateBillInput()">
+                    <span id="errorBill" style="color: red; display: none;">Invalid amount!</span>
                 </div>
+                
             </div>
 
             <label for="people" class="input-label">Split Between:</label>
@@ -37,7 +37,7 @@
                 <label for="tip" class="input-label">Tip: <span id="tipEmoji"></span></label>
                 <div class="tip-section">
                     <input type="range" id="tip" min="0" max="100" oninput="updateTipValue()" class="tip-slider">
-                    <input type="number" id="tipInput" style="width: 60px;" value="15" oninput="updateSliderValue()">
+                    <input type="text" id="tipInput" pattern="^\d+%$" style="width: 60px;" value="15%" oninput="updateSliderValueWithPercentage()">
                     <span class="input-value" id="tipPercentage"></span>
                 </div>
             </div>
