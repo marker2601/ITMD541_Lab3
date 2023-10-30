@@ -94,3 +94,20 @@ form {
         padding: 10px;
     }
 }
+.tip-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.tip-slider {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
