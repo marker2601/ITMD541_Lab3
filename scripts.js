@@ -1,4 +1,19 @@
+function isNumberKey(evt) {
+    var charCode = (evt.which) ? evt.which : event.keyCode;
+    if (charCode != 46 && charCode > 31 && (charCode < 48 || charCode > 57)) {
+        return false;
+    }
+    // Ensure only one decimal point
+    const inputVal = evt.target.value;
+    if (charCode == 46 && inputVal.indexOf('.') !== -1) {
+        return false;
+    }
+    return true;
+}
+
 let billTotal = document.getElementById("billTotal");
+billTotal.addEventListener('keypress', isNumberKey);
+
 let people = document.getElementById("people");
 let serviceQuality = document.getElementById("serviceQuality");
 let tipSlider = document.getElementById("tip");
@@ -70,7 +85,6 @@ function printDetails() {
     
     alert(details);
 }
-
 
 document.querySelector("input[type='reset']").addEventListener("click", function() {
     billTotal.value = "";
